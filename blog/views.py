@@ -63,6 +63,8 @@ class BlogDetailView(generic.DetailView):
     Generic class-based detail view for a blog.
     """
     model = Blog
+    slug_field = 'slug'  # the name of the slug field on the model
+    slug_url_kwarg = 'slug'  # the name of the kwarg in the URLconf
 
     
 class BloggerListView(generic.ListView):

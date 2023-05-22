@@ -6,7 +6,7 @@ from datetime import date
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 from django.contrib.auth.models import User #Blog author or commenter
 
-
+from django.utils.text import slugify
 
 class BlogAuthor(models.Model):
     """
@@ -37,6 +37,8 @@ class Blog(models.Model):
     """
     name = models.CharField(max_length=200)
     author = models.ForeignKey(BlogAuthor, on_delete=models.SET_NULL, null=True)
+    slug = models.SlugField(unique=True)
+
       # Foreign Key used because Blog can only have one author/User, but bloggsers can have multiple blog posts.
     description = models.TextField(max_length=2000, help_text="Enter you blog text here.")
     post_date = models.DateField(default=date.today)
@@ -55,6 +57,10 @@ class Blog(models.Model):
         String for representing the Model object.
         """
         return self.name
+    
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
         
         
 class BlogComment(models.Model):
