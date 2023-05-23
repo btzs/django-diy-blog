@@ -1,14 +1,14 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-    <h1>All blogs</h1>
+    <h1>All posts</h1>
 
     {% if blog_list %}
     <ul>
 
       {% for blog in blog_list %}
       <li>
-        <a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a> ({{blog.post_date}}) — <a href="{% url 'blogs-by-author' blog.author.pk %}">{{ blog.author }}</a>
+        <a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a> ({{blog.post_date}}) — <a href="{% url 'posts-by-author' blog.author.pk %}">{{ blog.author }}</a>
       </li>
       {% endfor %}
 

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Add config for Blog application
     'blog.apps.BlogConfig', 
+    'markdownx'
 ]
 
 MIDDLEWARE = [
