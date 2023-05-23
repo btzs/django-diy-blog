@@ -4,6 +4,9 @@ from django.contrib import admin
 
 from .models import BlogAuthor, Blog, BlogComment
 
+from markdownx.admin import MarkdownxModelAdmin
+
+
 
 # Minimal registration of Models.
 admin.site.register(BlogAuthor)
@@ -18,7 +21,7 @@ class BlogCommentsInline(admin.TabularInline):
     max_num=0
 
 @admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(MarkdownxModelAdmin):
     """
     Administration object for Blog models. 
     Defines:

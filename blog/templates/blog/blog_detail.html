@@ -1,4 +1,6 @@
 {% extends "base_generic.html" %}
+{% load markdownify %}
+
 
 {% block content %}
 
@@ -6,7 +8,8 @@
 <p><strong>Post date</strong> {{ blog.post_date }}</p>
 <p><strong>Author:</strong> <a href="{% url 'posts-by-author' blog.author.pk %}">{{ blog.author }}</a></p>
 <p><strong>Description:</strong></p>
-<p style="white-space:pre-wrap;">{{ blog.description }}</p>
+{{ blog.description|markdownify }}
+<p style="white-space:pre-wrap;"></p>
 
 <div style="margin-left:20px;margin-top:20px">
 <h4>Comments</h4>

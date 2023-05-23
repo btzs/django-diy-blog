@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Add config for Blog application
     'blog.apps.BlogConfig', 
-    'markdownx'
+    'markdownx',
+    'markdownify'
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,16 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# MARKDOWNIFY = {
+#   "default": {
+#      "WHITELIST_TAGS": ["a", "p", "h1", 'ul']
+#   },
+
+#   "alternative": {
+#      "WHITELIST_TAGS": ["a", "p", ],
+#      "MARKDOWN_EXTENSIONS": ["markdown.extensions.fenced_code", ]
+#   }
+# }
