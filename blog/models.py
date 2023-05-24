@@ -91,3 +91,5 @@ class BlogComment(models.Model):
 
 
 
+class Car(models.Model):
+    color = models.CharField(max_length=200)
