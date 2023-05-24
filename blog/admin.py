@@ -28,3 +28,6 @@ class BlogAdmin(admin.ModelAdmin):
     """
     list_display = ('name', 'author', 'post_date')
     inlines = [BlogCommentsInline]
+
+
+
